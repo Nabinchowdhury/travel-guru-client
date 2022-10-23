@@ -15,7 +15,7 @@ const Header = () => {
         <div>
             <Navbar collapseOnSelect expand="lg" bg="transparent" variant="dark">
                 <Container >
-                    <Link className='w-40 '><Image src={logo} className="bg-light py-2 px-3 rounded"></Image> </Link>
+                    <Link to="/" className='w-40 '><Image src={logo} className="bg-light py-2 px-3 rounded"></Image> </Link>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
 
@@ -29,7 +29,7 @@ const Header = () => {
                             <NavLink to="/about" className={({ isActive }) =>
                                 isActive ? 'text-yellow-500 hover:text-yellow-500 text-decoration-none ms-lg-5 fw-semibold' : 'text-white text-decoration-none ms-lg-5 fw-semibold'
                             }>About</NavLink>
-                            <Link to="" className='ms-lg-5'><button className='btn btn-outline-warning px-3 fw-semibold'>Login</button> </Link>
+                            <Link to="/login" className='ms-lg-5'><button className='btn btn-outline-warning px-3 fw-semibold'>Login</button> </Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
