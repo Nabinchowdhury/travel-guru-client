@@ -5,6 +5,7 @@ import Hotels from "../components/Pages/Hotels/Hotels";
 import Main from "../components/Pages/layout/Main/Main";
 import Login from "../components/Pages/Login/Login";
 import Sigup from "../components/Pages/Signup/Sigup";
+import UserProfile from "../components/Pages/UserProfile/UserProfile";
 
 const routes = createBrowserRouter([
     {
@@ -20,14 +21,23 @@ const routes = createBrowserRouter([
                 }
             },
             {
+                path: "/home",
+                element: <Home></Home>,
+                loader: () => {
+                    return fetch("http://localhost:5000/destinations")
+                }
+            },
+            {
                 path: "/destination/:id",
                 loader: ({ params }) => {
                     return fetch(`http://localhost:5000/destination/${params.id}`)
                 },
                 element: <Destination></Destination>,
             },
+
             {
-                path: "/hotels",
+                path: "/destination/hotels/:id",
+                loader: ({ params }) => fetch(`http://localhost:5000/destination/hotels/${params.id}`),
                 element: <Hotels></Hotels>,
             },
             {
@@ -41,6 +51,10 @@ const routes = createBrowserRouter([
             {
                 path: "/signup",
                 element: <Sigup></Sigup>,
+            },
+            {
+                path: "/profile",
+                element: <UserProfile></UserProfile>,
             },
         ]
     }
